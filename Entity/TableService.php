@@ -10,19 +10,15 @@ class TableService {
      * @param string $table Table to search for.
      * @return bool TRUE if table exists, FALSE if no table found.
      */
-    function tableExists(PDO $pdo, $table) {
-
-        // Try a select statement against the table
-        // Run it in try/catch in case PDO is in ERRMODE_EXCEPTION.
-        try {
+    function tableNoExists(PDO $pdo, $table) {
             $result = $pdo->query("SELECT 1 FROM $table LIMIT 1");
-        } catch (Exception $e) {
-            // We got an exception == table not found
-            return FALSE;
-        }
 
-        // Result is either boolean FALSE (no table found) or PDOStatement Object (table found)
-        return $result !== FALSE;
+            if($result) {
+                return false;
+            }
+            else {
+                return true;
+            }
     }
 
     /**
@@ -33,20 +29,16 @@ class TableService {
     {
         try {
             $pdo = DataBase::connect();
-            if (!$this->tableExists($pdo,$table)){
-              $sql = $pdo->prepare("CREATE TABLE '$table' 
-                        'id' int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-                        'title' varchar,
-                        'roznica' decimal DEFAULT 0.00,
-                        'opt' decimal DEFAULT 0.00,
-                        'sklad1' int,
-                        'sklad2' int,
-                        'country' varchar int DEFAULT Россия");
+              $sql = $pdo->prepare("CREATE TABLE IF NOT EXISTS $table ( 
+                        id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+                        title text ,
+                        rozn decimal(12,2) DEFAULT 0.00,
+                        opt decimal(12,2) DEFAULT 0.00,
+                        sklad1 int,
+                        sklad2 int,
+                        country text,
+                        prim text) ");
               $sql->execute();
-
-            } else {
-                echo 'Table is exist.';
-            }
             DataBase::disconnect();
         } catch (PDOException  $e ){
             echo "Error: ".$e;
@@ -54,7 +46,7 @@ class TableService {
         return ;
     }
 
-    public function getAllItems($table, $order = 'name', $paginate, $start_from)
+    public function getAllItems($table, $order = 'title', $paginate, $start_from)
     {
         try {
             $pdo = DataBase::connect();
@@ -81,60 +73,35 @@ class TableService {
         return ($result);
     }
 
-    private function validateItemParams( $name, $email) {
-        $errors = array();
-        if ( !isset($name) || empty($name) ) {
-            $errors[] = 'Name is required';}
-        elseif (!isset($email) || empty($email) ) {
-            $errors[] = 'E-mail is required';
-            }
-        if ( empty($errors) ) {
-            return;
-        }
-            throw new Exception ( $errors [0].' '.$errors[1]);
-    }
-
-    public function createNewTask( $name, $email, $task, $done =1 ) {
+    public function insertFileData($fileObj,$table) {
+        $this->createTable($table);
+        $sheet = $fileObj->getSheet(0);
+        $highestRow = $sheet->getHighestRow();
+        $highestColumn = $sheet->getHighestColumn();
+        //$sheetData = $fileObj->getActiveSheet()->toArray(null,true,true,true);
+        $sheetData = $sheet->rangeToArray(
+            'A2:' . $highestColumn . $highestRow,
+            NULL,FALSE,FALSE
+        );
         try {
             $pdo = DataBase::connect();
-            $this->validateItemParams($name, $email, $task);
-            $stmt = $pdo->prepare("INSERT INTO tasks (name, email, task, done) VALUES (?,?,?,?)");
-			$stmt->execute([$name,$email,$task,$done]);
+            $str = $pdo->prepare("SET SESSION sql_mode = ''");
+            $str->execute();
+            //$this->createTable('priselist');
+            foreach ($sheetData as $row) {
+                $stmt = $pdo->prepare("INSERT INTO $table (title, rozn, opt, sklad1, sklad2,country, prim) VALUES (?,?,?,?,?,?,' ')");
+                    $stmt->execute([$row[0],$row[1],$row[2],$row[3],$row[4],$row[5]]);
+                    //$stmt->execute([$name,$email,$task,$done]);
+                }
+
+            //$this->validateItemParams($name, $email, $task);
             DataBase::disconnect();;
-            } catch (Exception $e) {
+        } catch (Exception $e) {
             DataBase::disconnect();
             throw $e;
         }
     }
 
-     public function updateTask( $name, $email, $task, $id, $done ) {
-         try {
-             $pdo = DataBase::connect();
-             $this->validateTaskParams($name, $email);
-
-             $stmt = $pdo->prepare(
-                 "UPDATE tasks SET name = ?, email = ?, task = ? , done = ?, edit = true
-                           WHERE id = $id");
-             $stmt->execute([$name, $email, $task, $done]);
-             DataBase::disconnect();;
-         } catch (Exception $e) {
-             DataBase::disconnect();
-             throw $e;
-         }
-    }
-
-    public function getUser($login, $password) {
-        try{
-            $pdo = DataBase::connect();
-            $sth = $pdo->prepare("SELECT * FROM users WHERE login = '".$login."' AND password = '".$password."' ");
-            $sth->execute();
-            $result = $sth->fetch();
-            DataBase::disconnect();
-        }catch(PDOException  $e ){
-            echo "Error: ".$e;
-        }
-        return $result;
-    }
 
     public function paginator ($table, $limit)
     {
@@ -151,5 +118,4 @@ class TableService {
             echo "Error: ".$e;
         }
     }
-
 }
