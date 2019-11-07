@@ -91,6 +91,7 @@ class TableService {
             foreach ($sheetData as $row) {
                 $stmt = $pdo->prepare("INSERT INTO $table (title, rozn, opt, sklad1, sklad2,country, prim) VALUES (?,?,?,?,?,?,' ')");
                     $stmt->execute([$row[0],$row[1],$row[2],$row[3],$row[4],$row[5]]);
+
                     //$stmt->execute([$name,$email,$task,$done]);
                 }
 

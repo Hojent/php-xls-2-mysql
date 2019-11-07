@@ -9,10 +9,10 @@ class FileController
     }
 
     public function redirect($location) {
-        //header('Location: '.$location);
+        header('Location: '.$location);
     }
 
-    public function handleRequest($table = 'table', $rows = 25) {
+    public function handleRequest($table = 'pl2', $rows = 25) {
         $pg = isset($_GET['pg']) ? $_GET['pg'] : NULL;
         try {
             if ( !$pg || $pg == 'new' ) {
@@ -44,6 +44,7 @@ class FileController
         $rows = $this->tableService->getAllItems($table, $orderby, $paginate, $start_from);
         $total = $this->tableService->paginator($table, $paginate);
         include "View/list.php";
+        return ($rows);
     }
 
     public function newLoad() {
@@ -53,7 +54,7 @@ class FileController
             $fileObj = $this->getFileData($file);
             try {
                 $this->tableService->insertFileData($fileObj,'pl2');
-                $this->redirect('index.php');
+                $this->redirect('index.php?pg=list');
                 return;
             } catch (Exception $exception) { echo 'Error: '. $exception->getMessage(); }
         }

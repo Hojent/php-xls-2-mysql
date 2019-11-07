@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d26353-b124-4146-be84-144ea1d4b3b0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/FileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entity/TableService.php" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/TableService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/foot.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/foot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/task-form.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/task-form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,14 +50,7 @@
         <item name="bee@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="bee: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="plist: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="bee@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="bee: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="price: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="pl2: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -73,38 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataBase.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Entity/DataBase.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TableService.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TableService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Entity/TableService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plist" pinned="false" current-in-tab="false">
-        <entry file="das://b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/schema/bee/table/plist">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="price" pinned="false" current-in-tab="false">
-        <entry file="das://b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/schema/bee/table/price">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+            <state relative-caret-position="441">
+              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -112,8 +78,71 @@
       <file leaf-file-name="FileController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/FileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="62" column="50" lean-forward="true" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+            <state relative-caret-position="336">
+              <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/View/list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="33" column="56" lean-forward="true" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="task-form.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/task-form.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="foot.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/foot.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pl2" pinned="false" current-in-tab="false">
+        <entry file="das://b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/schema/bee/table/pl2">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="head.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/head.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="66" lean-forward="true" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="8" column="7436" selection-start-line="8" selection-start-column="7433" selection-end-line="8" selection-end-column="7436" />
             </state>
           </provider>
         </entry>
@@ -124,6 +153,7 @@
     <findStrings>
       <find>nam</find>
       <find>getSheet</find>
+      <find>row</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Programms\OSPan\domains\bitrix1\Classes\PHPExcel\Reader</dir>
@@ -136,14 +166,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/View/task-form.php" />
-        <option value="$PROJECT_DIR$/View/head.php" />
-        <option value="$PROJECT_DIR$/View/foot.php" />
         <option value="$PROJECT_DIR$/Entity/DataBase.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/console_1.sql" />
-        <option value="$PROJECT_DIR$/Controllers/FileController.php" />
         <option value="$PROJECT_DIR$/Entity/TableService.php" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/View/head.php" />
+        <option value="$PROJECT_DIR$/View/task-form.php" />
+        <option value="$PROJECT_DIR$/View/foot.php" />
+        <option value="$PROJECT_DIR$/Controllers/FileController.php" />
+        <option value="$PROJECT_DIR$/View/list.php" />
       </list>
     </option>
   </component>
@@ -184,30 +216,7 @@
             <path>
               <item name="bitrix1" type="b2602c69:ProjectViewProjectNode" />
               <item name="bitrix1" type="462c0819:PsiDirectoryNode" />
-              <item name="Classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bitrix1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bitrix1" type="462c0819:PsiDirectoryNode" />
-              <item name="Classes" type="462c0819:PsiDirectoryNode" />
-              <item name="PHPExcel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bitrix1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bitrix1" type="462c0819:PsiDirectoryNode" />
-              <item name="Classes" type="462c0819:PsiDirectoryNode" />
-              <item name="PHPExcel" type="462c0819:PsiDirectoryNode" />
-              <item name="Worksheet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bitrix1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bitrix1" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bitrix1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bitrix1" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bitrix1" type="b2602c69:ProjectViewProjectNode" />
@@ -223,8 +232,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../task/app/AppKernel.php" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../task/src/AppBundle/Controller/EventController.php" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
@@ -253,12 +262,12 @@
       <updated>1573040535258</updated>
       <workItem from="1573040536998" duration="5419000" />
       <workItem from="1573047065722" duration="8873000" />
-      <workItem from="1573114683395" duration="10214000" />
+      <workItem from="1573114683395" duration="13096000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24506000" />
+    <option name="totallyTimeSpent" value="27388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -269,11 +278,11 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3295325" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.15849487" />
-      <window_info anchor="bottom" id="Database Console" visible="true" weight="0.3295325" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15413533" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.41163057" />
+      <window_info anchor="bottom" id="Database Console" weight="0.3295325" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15413533" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.1557465" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.1557465" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -376,27 +385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/head.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/foot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/task-form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Entity/DataBase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -409,10 +397,10 @@
         <state relative-caret-position="-982" />
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
+    <entry file="das://b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/schema/bee/table/plist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -423,6 +411,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="8" column="7436" selection-start-line="8" selection-start-column="7433" selection-end-line="8" selection-end-column="7436" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/schema/bee/table/pl2">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../task/src/AppBundle/Controller/EventController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="86" column="53" lean-forward="true" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -430,24 +453,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://b5ff2c0d-a662-4fe2-a0cd-e819f39c8d5b/schema/bee/table/plist">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/View/head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="66" lean-forward="true" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/FileController.php">
+    <entry file="file://$PROJECT_DIR$/View/task-form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="62" column="50" lean-forward="true" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+        <state relative-caret-position="248">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/foot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Entity/TableService.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/FileController.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="33" column="56" lean-forward="true" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
         </state>
       </provider>
     </entry>

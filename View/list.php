@@ -3,46 +3,37 @@
 ?>
 <div class="container">
 <div class="panel-heading panel-content">
-    <a href="index.php?op=new">Add new task</a>
+    <a href="/">Load new file</a>
 </div>
 <div class="panel-body">
         <table border="0" cellpadding="0" cellspacing="0" class="tasks">
             <thead>
                 <tr>
-                    <th><a href="?orderby=name">Name</a></th>
-                    <th><a href="?orderby=email">Email</a></th>
-                    <th>Text</th>
-                    <th><a href="?orderby=done">Status</a></th>
-                    <?php if ($_SESSION['USERNAME'] == 'admin') {
-                        echo '<th>Action</th>';
-                    }
-                    ?>
+                    <th><a href="?orderby=title">Наименование товара</a></th>
+                    <th><a href="?orderby=rozn">Стоимость, руб</a></th>
+                    <th>Стоимость опт, руб</th>
+                    <th>Наличие на складе 1, шт</th>
+                    <th>Наличие на складе 2, шт</th>
+                    <th>Страна производства </th>
+                    <th>Примечание</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($tasks as $task): ?>
+                <?php foreach ($rows as $task): ?>
                     <tr>
-                        <td><?php print htmlentities($task['name'], ENT_QUOTES);
-                            if ($task['edit']) {
-                                echo '<br><span class="green-bg small">(edited by Administrator)</span>';
-                            }
+                        <td><?php print htmlentities($task['title'], ENT_QUOTES);
                             ?>
                         </td>
-                        <td><?php print htmlentities($task['email'], ENT_QUOTES); ?></td>
-                        <td><?php print htmlentities ($task['task']); ?>
-                        </td>
-                        <td><?php
-                                if ($task['done'] == 0) {
-                                    echo '<span class=" green-bg container-fluid"><b>Done</b></span>';
-                                } else {
-                                    echo 'In progress';
-                                }
-                            ?>
-                        </td>
-                        <?php if ($_SESSION['USERNAME'] == 'admin') {
-                           echo "<td><a href='index.php?op=edit&id=".$task['id']."'>edit</a></td>";
-                        }
-                        ?>
+                        <td><?php print htmlentities($task['rozn'], ENT_QUOTES); ?></td>
+                        <td><?php print htmlentities ($task['opt']); ?></td>
+                        <td><?php print htmlentities ($task['sklad1']); ?></td>
+                        <td><?php print htmlentities ($task['sklad2']); ?></td>
+                        <td><?php print htmlentities ($task['country']); ?></td>
+                        <td><?
+                            if (($task['sklad1'] + $task['sklad2']) < 100 ) {
+                                echo ('Спешите купить');
+                                } ?></td>
+
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -51,6 +42,8 @@
 </div>
     <br>
     <div class="container">
+        <div class="panel border-top">
+            <div class="panel-heading panel-content">
         <?php
             $pagLink = "<ul class='pagination'>";
             for ($i = 1; $i <= $total; $i++) {
@@ -58,25 +51,9 @@
             }
             echo $pagLink . "</ul>";
         ?>
+            </div>
+        </div>
     </div>
 
-    <br>
-    <div class="container">
-    <div class="panel border-top">
-    <div class="panel-heading panel-content">
-<?php
-    if ( isset($_SESSION['USERNAME']) ) {
-    echo 'Access allowed!'."\n";
-    echo 'Hello, '. $_SESSION['USERNAME'].PHP_EOL;?>
-    <a href="/Views/logout.php">Logout</a>
-
-<?php } else {
-    echo 'Access denied'.PHP_EOL;
-    ?>
-    <a href="/Views/login-form.php">Login</a>
-    <?php } ?>
-    </div>
-    </div>
-    </div>
 <?php include ('foot.php');
 //</body> </html>
