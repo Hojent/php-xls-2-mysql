@@ -33,7 +33,7 @@ class FileController
      * @param $table - Table name:string
      */
     public function showTable($table, $paginate) {
-        $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : "title";
+        $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : "id";
         if (isset($_GET["page"])) {
             $page  = $_GET["page"];
         }
@@ -42,9 +42,22 @@ class FileController
         };
         $start_from = ($page-1) * $paginate;
         $rows = $this->tableService->getAllItems($table, $orderby, $paginate, $start_from);
-        $total = $this->tableService->paginator($table, $paginate);
+        //$total = $this->tableService->paginator($table, $paginate);
+
+        $opt = array_filter(array_column($rows, 'opt'));
+        $opt_id = array_keys($opt, min($opt))[0];
+        $opt_min = min($opt);
+        $opt_aver = round(array_sum($opt) / count($opt),2);
+        $rozn = array_filter(array_column($rows, 'rozn'));
+        $rozn_id = array_keys($rozn, max($rozn))[0];
+        $rozn_max = max($rozn);
+        $rozn_aver = round(array_sum($rozn) / count($rozn),2);
+        $sklad1 = array_filter(array_column($rows, 'sklad1'));
+        $sklad1Sum = array_sum($sklad1);
+        $sklad2 = array_filter(array_column($rows, 'sklad2'));
+        $sklad2Sum = array_sum($sklad2);
         include "View/list.php";
-        return ($rows);
+        return ;
     }
 
     public function newLoad() {

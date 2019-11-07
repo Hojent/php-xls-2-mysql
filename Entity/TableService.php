@@ -46,11 +46,24 @@ class TableService {
         return ;
     }
 
-    public function getAllItems($table, $order = 'title', $paginate, $start_from)
+    public function getAllItems1($table, $order = 'id')
     {
         try {
             $pdo = DataBase::connect();
-            $sth = $pdo->prepare("SELECT * FROM $table ORDER BY $order LIMIT $start_from, $paginate");
+            $sth = $pdo->prepare("SELECT * FROM $table ORDER BY $order ");
+            $sth->execute();
+            $result = $sth->fetchAll();
+            DataBase::disconnect();
+        } catch (PDOException  $e ){
+            echo "Error: ".$e;
+        }
+        return $result;
+    }
+    public function getAllItems($table, $order = 'id', $paginate, $start_from)
+    {
+        try {
+            $pdo = DataBase::connect();
+            $sth = $pdo->prepare("SELECT * FROM $table ORDER BY $order ");
             $sth->execute();
             $result = $sth->fetchAll();
             DataBase::disconnect();
@@ -89,8 +102,10 @@ class TableService {
             $str->execute();
             //$this->createTable('priselist');
             foreach ($sheetData as $row) {
-                $stmt = $pdo->prepare("INSERT INTO $table (title, rozn, opt, sklad1, sklad2,country, prim) VALUES (?,?,?,?,?,?,' ')");
-                    $stmt->execute([$row[0],$row[1],$row[2],$row[3],$row[4],$row[5]]);
+                $stmt = $pdo->prepare("INSERT INTO $table (title, rozn, opt, sklad1, sklad2,country) VALUES (?,?,?,?,?,?)");
+                    $rozn = ($row[1] == 0) ? null : $row[1];
+                    $opt = ($row[2] == 0.00) ? null : $row[2];
+                    $stmt->execute([$row[0], $rozn, $opt, $row[3],$row[4],$row[5]]);
 
                     //$stmt->execute([$name,$email,$task,$done]);
                 }
