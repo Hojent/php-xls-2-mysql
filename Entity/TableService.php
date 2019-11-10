@@ -23,13 +23,12 @@ class TableService {
 
     /**
      * @param $table
-     * @param $options array
      */
     public function createTable($table)
     {
         try {
             $pdo = DataBase::connect();
-              $sql = $pdo->prepare("CREATE TABLE IF NOT EXISTS $table ( 
+              $sql = $pdo->prepare("CREATE TABLE IF NOT EXISTS $table (
                         id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
                         title text ,
                         rozn decimal(12,2) DEFAULT 0.00,
@@ -79,6 +78,36 @@ class TableService {
             $sth = $pdo->prepare("SELECT * FROM $table WHERE id = $id");
             $sth->execute();
             $result = $sth->fetch();
+            DataBase::disconnect();
+        }catch(PDOException  $e ){
+            echo "Error: ".$e;
+        }
+        return ($result);
+    }
+
+     /**
+     * @param $table string
+     * @param $options array
+     */
+    public function selectRows ($table = 'pl2', $curMin, $curMax, $curCost, $curZnak, $curSklad)
+    {
+    	 try{
+            $pdo = DataBase::connect();
+            if ($curCost == 2) {
+            	$cost = 'opt';
+            } else {
+            	$cost = 'rozn';
+            }
+            $query = "SELECT * FROM $table WHERE ($cost BETWEEN $curMin AND $curMax) ";
+	        if ($curZnak == 3) {
+	        	$znak = '>';
+	        } elseif ($curZnak == 4) {
+	        	$znak = '<';
+	        }
+            $query .= " AND (sklad1 $znak $curSklad OR sklad2 $znak $curSklad) ORDER BY id";
+            $sth = $pdo->prepare($query);
+            $sth->execute();
+            $result = $sth->fetchAll();
             DataBase::disconnect();
         }catch(PDOException  $e ){
             echo "Error: ".$e;

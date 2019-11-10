@@ -12,13 +12,17 @@ class FileController
         header('Location: '.$location);
     }
 
-    public function handleRequest($table = 'pl2', $rows = 25) {
+    public function handleRequest($table = 'pl2', $paginate = 25) {
         $pg = isset($_GET['pg']) ? $_GET['pg'] : NULL;
         try {
             if ( !$pg || $pg == 'new' ) {
                 $this->newLoad();
             } elseif ( $pg == 'list') {
                 $this->showTable($table, $rows);
+            } elseif ( $pg == 'filter') {
+                $this->showSelectedRows();
+            } elseif ( $pg == 'getrows'){
+                $this->getAjaxRows();
             }
             else {
                 $this->showError("Page not found", "Page for operation ".$pg." was not found!");
@@ -43,7 +47,6 @@ class FileController
         $start_from = ($page-1) * $paginate;
         $rows = $this->tableService->getAllItems($table, $orderby, $paginate, $start_from);
         //$total = $this->tableService->paginator($table, $paginate);
-
         $opt = array_filter(array_column($rows, 'opt'));
         $opt_id = array_keys($opt, min($opt))[0];
         $opt_min = min($opt);
@@ -58,6 +61,56 @@ class FileController
         $sklad2Sum = array_sum($sklad2);
         include "View/list.php";
         return ;
+    }
+
+    public function showSelectedRows() {
+        include "View/filter.php";
+    }
+
+    /**
+     * @param $table string
+     * @param $options array
+     */
+    public function getAjaxRows() {
+
+        $curMax = filter_input(INPUT_POST, 'curMax', FILTER_VALIDATE_INT);
+        $curMin = filter_input(INPUT_POST, 'curMin', FILTER_VALIDATE_INT);
+        $curSklad = filter_input(INPUT_POST, 'curSklad', FILTER_VALIDATE_INT);
+        //$curSklad = $_POST['curSklad'];
+        $curCost = $_POST['curCost']; //rozn=1, opt=2
+        //$curCost = 1;
+        $curZnak = $_POST['curZnak'];// > =3, < =4
+
+        $rows = $this->tableService->selectRows('pl2', $curMin, $curMax, $curCost, $curZnak, $curSklad);
+        echo ('Всего найдено '.count($rows).' позиций.');
+
+        $html = "<table class='table-inbox' border='1' cellpadding='8' cellspacing='0'>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>наименование</th>
+                    <th>Стоимость, руб</th>
+                    <th>Стоимость опт, in</th>
+                    <th>Остаток на складе 1, шт</th>
+                    <th>Остаток на складе 2, шт</th>
+                    <th>Страна производитель </th>
+                </tr>
+            </thead>
+            <tbody>";
+
+        if ($rows) {
+            foreach ($rows as $task) {
+
+                $html .= "<tr class='some-div'><td>" . $task['id'] .
+                    "</td><td>" . $task['title'] . "</td><td>" . $task['rozn'] . "</td><td>" . $task['opt'] .
+                    "</td><td>" . $task['sklad1'] . "</td><td>" . $task['sklad2'] . "</td><td>" . $task['country'] . "</td></tr>";
+            }
+            $html .= "</tbody></table>";
+        } else {
+            $html .= "</tbody></table><P>Не найдено ...</P>";
+        }
+
+        echo $html;
     }
 
     public function newLoad() {

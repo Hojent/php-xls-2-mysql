@@ -1,9 +1,6 @@
 <?php include ('head.php');?>
 <div id="container">
-<div class="panel-heading panel-content">
-    <a href="/">Load new file</a>
-</div>
-<div class="panel-body">
+<div class="panel-body" >
         <table border="0" cellpadding="0" cellspacing="0" class="table-inbox">
             <thead>
                 <tr>
@@ -29,15 +26,19 @@
                     $optClass = '';
                 }
                 ?>
-                    <tr>
+                    <tr class="some-div" >
                         <td><?php echo $task['id']; ?></td>
                         <td><?php print htmlentities($task['title'], ENT_QUOTES);
                             ?>
                         </td>
-                        <td class="<?php echo $roznClass; ?>"><?php print htmlentities($task['rozn'], ENT_QUOTES); ?></td>
-                        <td class="<?php echo $optClass; ?>"><?php print htmlentities ($task['opt']); ?></td>
-                        <td><?php print htmlentities ($task['sklad1']); ?></td>
-                        <td><?php print htmlentities ($task['sklad2']); ?></td>
+                        <td class="<?php echo $roznClass; ?>" roz-val = "<?php print htmlentities($task['rozn'], ENT_QUOTES); ?> " >
+                            <?php print htmlentities($task['rozn'], ENT_QUOTES); ?>
+                        </td>
+                        <td class="<?php echo $optClass; ?>" opt-val = "<?php print htmlentities ($task['opt']); ?>">
+                            <?php print htmlentities ($task['opt']); ?>
+                        </td>
+                        <td sklad1-val="<?php print htmlentities ($task['sklad1']); ?>"><?php print htmlentities ($task['sklad1']); ?></td>
+                        <td sklad2-val="<?php print htmlentities ($task['sklad2']); ?>"><?php print htmlentities ($task['sklad2']); ?></td>
                         <td><?php print htmlentities ($task['country']); ?></td>
                         <td><?
                             if (($task['sklad1'] < 20 ) OR ($task['sklad2'] < 20)) {
@@ -66,8 +67,8 @@
                     <td></td>
                 </tr>
             </tbody>
-        </table>
-</div>
-</div>
+          </table>
+	</div>
+</div> <!-- container -->
 <?php include ('foot.php');
 //</body> </html>
